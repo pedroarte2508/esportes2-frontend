@@ -1,0 +1,3 @@
+rootProject.name = 'esportes2'
+
+include ':app'
