@@ -15,18 +15,26 @@ export default class Main extends Component {
   };
 
   state = {
-    docs: []
+    teamInfo: {},
+    docs: [],
+    page: 1
   };
 
   componentDidMount() {
     this.loadTeams();
   }
 
-  loadTeams = async () => {
-    console.log("iniciando aplicação...");
-    const response = await api.get("/teams");
-    const { docs } = response.data;
-    this.setState({ docs });
+  loadTeams = async (page = 1) => {
+    const response = await api.get(`/teams?page=${page}`);
+    const { docs, ...teamInfo } = response.data;
+    this.setState({ docs: [...this.state.docs, ...docs], teamInfo, page });
+  };
+
+  loadMore = () => {
+    const { page, teamInfo } = this.state;
+    if (page == teamInfo.pages) return;
+    const pageNumber = page + 1;
+    this.loadTeams(pageNumber);
   };
 
   renderItem = ({ item }) => (
@@ -48,6 +56,8 @@ export default class Main extends Component {
           data={this.state.docs}
           keyExtractor={item => item._id}
           renderItem={this.renderItem}
+          onEndReached={this.loadMore}
+          onEndReachedThreshold={0.1}
         />
       </View>
     );
