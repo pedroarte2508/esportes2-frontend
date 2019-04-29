@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Menu from "../config/MenuConfig";
+import api from "../services/api";
 import {
   View,
   Text,
@@ -11,35 +11,39 @@ import {
 
 export default class Main extends Component {
   static navigationOptions = {
-    title: "Menu"
+    title: "Equipes"
   };
 
   state = {
-    Menu,
-    Submenu: Menu,
-    isSubmenu: false
+    teamInfo: {},
+    docs: [],
+    page: 1
   };
 
-  goLink = submenu => {
-    alert(JSON.stringify(submenu));
+  componentDidMount() {
+    this.loadTeams();
+  }
+
+  loadTeams = async (page = 1) => {
+    const response = await api.get(`/teams?page=${page}`);
+    const { docs, ...teamInfo } = response.data;
+    this.setState({ docs: [...this.state.docs, ...docs], teamInfo, page });
+  };
+
+  loadMore = () => {
+    const { page, teamInfo } = this.state;
+    if (page == teamInfo.pages) return;
+    const pageNumber = page + 1;
+    this.loadTeams(pageNumber);
   };
 
   renderItem = ({ item }) => (
     <View style={styles.teamContainer}>
-      <TouchableOpacity
-        style={styles.teamButton}
-        onPress={() => {
-          if (!this.state.isSubmenu) {
-            this.setState({ Submenu: item.submenu, isSubmenu: true });
-          } else {
-            this.setState({ Submenu: Menu, isSubmenu: false });
-          }
-          if (item.title == "Voltar") {
-            this.componentDidMount();
-          }
-        }}
-      >
-        <Text style={styles.teamButtonText}>{item.title}</Text>
+      <Text styles={styles.teamTitle}>{item.name}</Text>
+      <Image source={{ uri: item.picture }} style={styles.image} />
+
+      <TouchableOpacity style={styles.teamButton} onPress={() => {}}>
+        <Text style={styles.teamButtonText}>Visualizar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -49,9 +53,11 @@ export default class Main extends Component {
       <View style={styles.container}>
         <FlatList
           contentContainerStyle={styles.list}
-          data={this.state.Submenu}
+          data={this.state.docs}
           keyExtractor={item => item._id}
           renderItem={this.renderItem}
+          onEndReached={this.loadMore}
+          onEndReachedThreshold={0.1}
         />
       </View>
     );

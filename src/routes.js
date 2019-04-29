@@ -1,10 +1,12 @@
 import { createStackNavigator } from "react-navigation";
 
 import Main from "./pages/main";
+import Equipes from "./pages/teams";
 
 export default createStackNavigator(
   {
-    Main
+    Main,
+    Equipes
   },
   {
     navigationOptions: {
