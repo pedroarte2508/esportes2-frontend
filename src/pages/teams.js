@@ -9,7 +9,7 @@ import {
   StyleSheet
 } from "react-native";
 
-export default class Main extends Component {
+export default class Team extends Component {
   static navigationOptions = {
     title: "Equipes"
   };

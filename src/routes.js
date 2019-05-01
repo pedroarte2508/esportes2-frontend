@@ -1,12 +1,16 @@
 import { createStackNavigator } from "react-navigation";
 
 import Main from "./pages/main";
-import Equipes from "./pages/teams";
+import Team from "./pages/teams";
+import Player from "./pages/player";
+import Cup from "./pages/cup";
 
 export default createStackNavigator(
   {
     Main,
-    Equipes
+    Team,
+    Player,
+    Cup
   },
   {
     navigationOptions: {

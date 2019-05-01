@@ -7,12 +7,14 @@ const menu = [
       {
         _id: "1a",
         title: "Incluir Equipe",
-        icon: ""
+        icon: "",
+        navigate: "Team"
       },
       {
         _id: "1b",
         title: "Visualizar Equipes",
-        icon: ""
+        icon: "",
+        navigate: "Team"
       },
       {
         _id: "1c",
@@ -29,12 +31,14 @@ const menu = [
       {
         _id: "2a",
         title: "Incluir Jogador",
-        icon: ""
+        icon: "",
+        navigate: "Player"
       },
       {
         _id: "2b",
         title: "Pesquisar Jogadores",
-        icon: ""
+        icon: "",
+        navigate: "Player"
       },
       {
         _id: "2c",
@@ -45,18 +49,20 @@ const menu = [
   },
   {
     _id: "3",
-    title: "Campeonatos",
+    title: "Eventos",
     icon: "",
     submenu: [
       {
         _id: "3a",
-        title: "Incluir Campeonato",
-        icon: ""
+        title: "Incluir Evento",
+        icon: "",
+        navigate: "Cup"
       },
       {
         _id: "3b",
-        title: "Visualizar Campeonatos",
-        icon: ""
+        title: "Visualizar Eventos",
+        icon: "",
+        navigate: "Cup"
       },
       {
         _id: "3c",
