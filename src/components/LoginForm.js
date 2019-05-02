@@ -8,10 +8,39 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import StylesConfig from "../config/StylesConfig";
+import api from "../services/api";
+import SyncStorage from "sync-storage";
 
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
+  }
+
+  state = {
+    loginInput: "",
+    passwordInput: ""
+  };
+
+  async login() {
+    const data = {
+      login: this.state.loginInput,
+      password: this.state.passwordInput
+    };
+    const user = await api
+      .post("/login", data)
+      .then(data => {
+        console.log(data, "tamanho: " + data.data.length, this.state);
+        if (data.data.length > 0) {
+          SyncStorage.set("__logado", "S");
+          SyncStorage.set("__user", JSON.stringify(data.data));
+          this.props.navigate.navigate("Main");
+        } else {
+          alert("Login ou senha inválidos");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   render() {
     return (
@@ -25,6 +54,8 @@ export default class LoginForm extends Component {
           }}
           returnKeyType="next"
           autoCapitalize="none"
+          value={this.state.loginInput}
+          onChangeText={loginInput => this.setState({ loginInput })}
         />
         <TextInput
           style={styles.input}
@@ -34,12 +65,13 @@ export default class LoginForm extends Component {
           returnKeyType="go"
           ref={input => (this.passwordInput = input)}
           autoCapitalize="none"
+          value={this.state.passwordInput}
+          onChangeText={passwordInput => this.setState({ passwordInput })}
         />
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => {
-            console.log("clicado");
-            this.props.navigate.navigate("Main");
+            this.login();
           }}
         >
           <Text style={styles.buttonText}>LOGIN</Text>
