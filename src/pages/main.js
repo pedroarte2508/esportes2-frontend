@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SyncStorage from "sync-storage";
 import Menu from "../config/MenuConfig";
 import {
   View,
@@ -13,6 +14,15 @@ export default class Main extends Component {
   static navigationOptions = {
     title: "Menu"
   };
+
+  async componentWillMount() {
+    const data = await SyncStorage.init();
+    console.log("AsyncStorage is ready!", data);
+    const logado = SyncStorage.get("__logado");
+    if (logado != "S") {
+      this.props.navigation.navigate("Login");
+    }
+  }
 
   state = {
     Menu,

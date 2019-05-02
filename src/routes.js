@@ -4,9 +4,13 @@ import Main from "./pages/main";
 import Team from "./pages/teams";
 import Player from "./pages/player";
 import Cup from "./pages/cup";
+import Login from "./pages/login";
+
+import StylesConfig from "./config/StylesConfig";
 
 export default createStackNavigator(
   {
+    Login,
     Main,
     Team,
     Player,
@@ -15,7 +19,7 @@ export default createStackNavigator(
   {
     navigationOptions: {
       headerStyle: {
-        backgroundColor: "#00a90a"
+        backgroundColor: StylesConfig.statusBarColor
       },
       headerTintColor: "#FFF"
     }

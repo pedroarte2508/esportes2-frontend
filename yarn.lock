@@ -799,6 +799,11 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
+"@react-native-community/async-storage@^1.2.2":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.3.4.tgz#5a664484d485bcbab79648e1a0ce775b90843f29"
+  integrity sha512-fJmzL27x0BEjhmMXPnDPnUNCZK7bph+NBVCfAz9fzHzAamaiOkdUwuL3PvE4Oj4Kw4knP8ocw5VRDGorAidZ2g==
+
 "@react-native-community/cli@^1.2.1":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-1.9.2.tgz#d033ab141df3a476e628aecd9c99534b5cb0d63e"
@@ -5884,6 +5889,13 @@ symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
   integrity sha1-rifbOPZgp64uHDt9G8KQgZuFGeY=
+
+sync-storage@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/sync-storage/-/sync-storage-0.4.0.tgz#8c2a1d3dcdfdbb93f2740e4d0040cd500f29af21"
+  integrity sha512-3f+2fNfOlTUfCfBQiubj6wto2z0YDgg1hDXqnN8qqWsdz5A6cxBxpUIrUxGX03CohvUgt/bWQ/HsFlOq5ERd6g==
+  dependencies:
+    "@react-native-community/async-storage" "^1.2.2"
 
 tar@^4:
   version "4.4.8"
