@@ -23,5 +23,17 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroarte2508/esportes2-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedroarte2508/esportes2-frontend/issues"
+  },
+  "homepage": "https://github.com/pedroarte2508/esportes2-frontend#readme",
+  "description": ""
 }

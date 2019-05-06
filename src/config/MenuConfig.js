@@ -8,7 +8,7 @@ const menu = [
         _id: "1a",
         title: "Incluir Equipe",
         icon: "",
-        navigate: "Team"
+        navigate: "TeamForm"
       },
       {
         _id: "1b",
@@ -38,7 +38,7 @@ const menu = [
         _id: "2b",
         title: "Pesquisar Jogadores",
         icon: "",
-        navigate: "Player"
+        navigate: "Team"
       },
       {
         _id: "2c",
@@ -56,7 +56,7 @@ const menu = [
         _id: "3a",
         title: "Incluir Evento",
         icon: "",
-        navigate: "Cup"
+        navigate: "EventForm"
       },
       {
         _id: "3b",

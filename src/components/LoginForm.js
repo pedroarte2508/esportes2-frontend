@@ -41,6 +41,27 @@ export default class LoginForm extends Component {
       .catch(err => {
         console.log(err);
       });
+
+    // const user = await fetch("http://localhost:3333/api/login", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     login: this.state.loginInput,
+    //     password: this.state.passwordInput
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(responseJson => {
+    //     return responseJson.data;
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   });
+
+    // console.log("user", user);
   }
   render() {
     return (

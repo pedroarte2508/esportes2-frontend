@@ -5,6 +5,8 @@ import Team from "./pages/teams";
 import Player from "./pages/player";
 import Cup from "./pages/cup";
 import Login from "./pages/login";
+import EventForm from "./components/events/EventForm";
+import TeamForm from "./components/teams/TeamForm";
 
 import StylesConfig from "./config/StylesConfig";
 
@@ -14,7 +16,9 @@ export default createStackNavigator(
     Main,
     Team,
     Player,
-    Cup
+    Cup,
+    EventForm,
+    TeamForm
   },
   {
     navigationOptions: {

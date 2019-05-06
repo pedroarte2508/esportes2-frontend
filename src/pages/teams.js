@@ -39,8 +39,10 @@ export default class Team extends Component {
 
   renderItem = ({ item }) => (
     <View style={styles.teamContainer}>
-      <Text styles={styles.teamTitle}>{item.name}</Text>
-      <Image source={{ uri: item.picture }} style={styles.image} />
+      <View style={styles.subContainer}>
+        <Text styles={styles.teamTitle}>{item.name}</Text>
+        <Image source={{ uri: item.picture }} style={styles.image} />
+      </View>
 
       <TouchableOpacity style={styles.teamButton} onPress={() => {}}>
         <Text style={styles.teamButtonText}>Visualizar</Text>
@@ -71,12 +73,18 @@ const styles = StyleSheet.create({
   },
 
   teamContainer: {
+    flex: 1,
     backgroundColor: "#FFF",
     borderWidth: 1,
     borderColor: "#DDD",
     borderRadius: 5,
     padding: 20,
     marginBottom: 20
+  },
+
+  subContainer: {
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   image: {
